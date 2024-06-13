@@ -219,19 +219,11 @@ void editorDrawRows(struct abuf *ab){
 
             int padding = (E.screencols - welcomelen) / 2;
 
-            if(padding){
-                abAppend(ab, "~", 1);
-                padding--;
-            }
-
             while(padding--){
                 abAppend(ab, " ", 1);
             }
 
             abAppend(ab, welcome, welcomelen);
-        }
-        else{
-            abAppend(ab, "~", 1);
         }
 
         abAppend(ab, "\x1b[K", 3);
