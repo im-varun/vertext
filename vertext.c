@@ -175,7 +175,7 @@ int getWindowSize(int *rows, int *cols){
     }
     else{
         *cols = ws.ws_col;
-        *rows = ws.ws_col;
+        *rows = ws.ws_row;
 
         return 0;
     }
@@ -207,7 +207,21 @@ void abFree(struct abuf *ab){
 
 void editorDrawRows(struct abuf *ab){
     for(int i = 0; i < E.screenrows; i++){
+        if(i == E.screenrows - 1){
+            char lineColStatus[80];
+            snprintf(lineColStatus, sizeof(lineColStatus), "Line: %d, Column %d", E.cy + 1, E.cx + 1);
+
+            int lineColStatusLength = strlen(lineColStatus);
+
+            if(lineColStatusLength > E.screencols){
+                lineColStatusLength = E.screencols;
+            }
+
+            abAppend(ab, lineColStatus, lineColStatusLength);
+        }
+
         abAppend(ab, "\x1b[K", 3);
+
         if(i < E.screenrows - 1){
             abAppend(ab, "\r\n", 2);
         }
@@ -215,6 +229,10 @@ void editorDrawRows(struct abuf *ab){
 }
 
 void editorRefreshScreen(){
+    if(E.cy == E.screenrows - 1){
+        E.cy = E.screenrows - 2;
+    }
+
     struct abuf ab = ABUF_INIT;
 
     abAppend(&ab, "\x1b[?25l", 6);
