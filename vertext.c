@@ -209,23 +209,6 @@ void abFree(struct abuf *ab){
 
 void editorDrawRows(struct abuf *ab){
     for(int i = 0; i < E.screenrows; i++){
-        if(i == (E.screenrows / 3)){
-            char welcome[80];
-            int welcomelen = snprintf(welcome, sizeof(welcome), "Vertext Editor -- version %s", VERTEXT_VERSION);
-
-            if(welcomelen > E.screencols){
-                welcomelen = E.screencols;
-            }
-
-            int padding = (E.screencols - welcomelen) / 2;
-
-            while(padding--){
-                abAppend(ab, " ", 1);
-            }
-
-            abAppend(ab, welcome, welcomelen);
-        }
-
         abAppend(ab, "\x1b[K", 3);
         if(i < E.screenrows - 1){
             abAppend(ab, "\r\n", 2);
