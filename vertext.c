@@ -277,7 +277,7 @@ void editorScroll(){
 }
 
 void editorDrawRows(struct abuf *ab){
-    for(int i = 0; i < E.screenrows - 1; i++){
+    for(int i = 0; i < E.screenrows; i++){
         int filerow = i + E.rowoff;
 
         if(filerow < E.numrows){
@@ -296,19 +296,10 @@ void editorDrawRows(struct abuf *ab){
 
         abAppend(ab, "\x1b[K", 3);
 
-        abAppend(ab, "\r\n", 2);
+        if(i < E.screenrows - 1){
+            abAppend(ab, "\r\n", 2);
+        }
     }
-
-    char lineStatus[80];
-    snprintf(lineStatus, sizeof(lineStatus), "Line: %d", E.cy + 1);
-
-    int lineStatusLength = strlen(lineStatus);
-
-    if(lineStatusLength > E.screencols){
-        lineStatusLength = E.screencols;
-    }
-
-    abAppend(ab, lineStatus, lineStatusLength);
 }
 
 void editorRefreshScreen(){
