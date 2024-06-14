@@ -272,16 +272,16 @@ void editorDrawRows(struct abuf *ab){
         abAppend(ab, "\r\n", 2);
     }
 
-    char lineColStatus[80];
-    snprintf(lineColStatus, sizeof(lineColStatus), "Line: %d", E.cy + 1);
+    char lineStatus[80];
+    snprintf(lineStatus, sizeof(lineStatus), "Line: %d", E.cy + 1);
 
-    int lineColStatusLength = strlen(lineColStatus);
+    int lineStatusLength = strlen(lineStatus);
 
-    if(lineColStatusLength > E.screencols){
-        lineColStatusLength = E.screencols;
+    if(lineStatusLength > E.screencols){
+        lineStatusLength = E.screencols;
     }
 
-    abAppend(ab, lineColStatus, lineColStatusLength);
+    abAppend(ab, lineStatus, lineStatusLength);
 }
 
 void editorRefreshScreen(){
