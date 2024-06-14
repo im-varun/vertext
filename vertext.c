@@ -256,20 +256,7 @@ void abFree(struct abuf *ab){
 }
 
 void editorDrawRows(struct abuf *ab){
-    for(int i = 0; i < E.screenrows; i++){
-        if(i == E.screenrows - 1){
-            char lineColStatus[80];
-            snprintf(lineColStatus, sizeof(lineColStatus), "Line: %d, Column %d", E.cy + 1, E.cx + 1);
-
-            int lineColStatusLength = strlen(lineColStatus);
-
-            if(lineColStatusLength > E.screencols){
-                lineColStatusLength = E.screencols;
-            }
-
-            abAppend(ab, lineColStatus, lineColStatusLength);
-        }
-
+    for(int i = 0; i < E.screenrows - 1; i++){
         if(i < E.numrows){
             int len = E.row[i].size;
 
@@ -282,10 +269,19 @@ void editorDrawRows(struct abuf *ab){
 
         abAppend(ab, "\x1b[K", 3);
 
-        if(i < E.screenrows - 1){
-            abAppend(ab, "\r\n", 2);
-        }
+        abAppend(ab, "\r\n", 2);
     }
+
+    char lineColStatus[80];
+    snprintf(lineColStatus, sizeof(lineColStatus), "Line: %d", E.cy + 1);
+
+    int lineColStatusLength = strlen(lineColStatus);
+
+    if(lineColStatusLength > E.screencols){
+        lineColStatusLength = E.screencols;
+    }
+
+    abAppend(ab, lineColStatus, lineColStatusLength);
 }
 
 void editorRefreshScreen(){
