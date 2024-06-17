@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #define TAB_STOP 8
-#define QUIT_TIMES 3
+#define QUIT_TIMES 2
 
 #define CTRL_KEY(k) ((k) & 0x1f)
 
