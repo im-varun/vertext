@@ -31,7 +31,7 @@ To open an existing file (name=filename), run `./vertext filename`
 
 Once you have the text editor running, you can start editing text files. The text editor uses standard editing keys. Some of the basic commands with their shortcuts are:  
 1. Open a file: `./vertext filename`  
-2. Save a file: `Ctrl + S`  
+2. Save a file: `Ctrl + S` (The file will be saved in the current directory.)  
 3. Quit the editor when the file is unmodified: `Ctrl + Q`  
 4. Quit the editor when the file is modified: `Ctrl + Q` 3 times
 
