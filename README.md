@@ -1,10 +1,6 @@
 # Vertext Text Editor
 
-Vertext is a simple, lightweight text editor written from scratch in C. This project is inspired by the Kilo text editor (see Acknowledgements for more details).
-
-# Disclaimer
-
-This project is for educational purpose only.
+Vertext is a simple, lightweight text editor written from scratch in C. This project is inspired by the Kilo text editor (see Acknowledgements for more details). This project is for educational purpose only.
 
 # Acknowledgements
 - [Kilo Text Editor](https://github.com/antirez/kilo) by [antirez](https://github.com/antirez)
