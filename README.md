@@ -7,12 +7,22 @@ Vertext is a simple, lightweight text editor written from scratch in C. This pro
 The installation instructions are for Windows Operating System only and assume that you already have [Cygwin](https://www.cygwin.com/) along with its GCC and Make components (used for compiling C program files and running Makefile respectively) installed on your PC.
 
 To install and run Vertext, follow these steps:  
+
 1. Clone the repository:  
-`git clone https://github.com/im-varun/vertext.git`  
+```sh
+git clone https://github.com/im-varun/vertext.git
+```  
+
 2. Navigate to the project directory:  
-`cd vertext`  
+```sh
+cd vertext
+```  
+
 3. Compile the source code:  
-`make`  
+```sh
+make
+```  
+
 4. Run the text editor:  
 To open a blank file, run `./vertext`  
 To open an existing file (name=filename), run `./vertext filename`
