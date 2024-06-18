@@ -4,7 +4,7 @@ Vertext is a simple, lightweight text editor written from scratch in C. This pro
 
 # Installation
 
-The installation instructions are for Windows Operating System only and assume that you already have [Cygwin](https://www.cygwin.com/) along with its GCC and Make components (used for compiling C program files and running Makefile respectively) installed on your PC.
+The installation instructions are for Windows Operating System only and assumes that you already have [Cygwin](https://www.cygwin.com/) along with its GCC and Make components (used for compiling C program files and running Makefile respectively) installed.
 
 To install and run Vertext, follow these steps:  
 
@@ -31,7 +31,7 @@ To open an existing file (name=filename), run `./vertext filename`
 
 Once you have the text editor running, you can start editing text files. The text editor uses standard editing keys. Some of the basic commands with their shortcuts are:  
 1. Open a file: `./vertext filename`  
-2. Save a file: `Ctrl + S` (The file will be saved in the current directory.)  
+2. Save a file: `Ctrl + S` (file will be saved in the current directory)  
 3. Quit the editor when the file is unmodified: `Ctrl + Q`  
 4. Quit the editor when the file is modified: `Ctrl + Q` 3 times
 
