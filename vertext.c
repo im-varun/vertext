@@ -419,6 +419,29 @@ char *editorRowsToString(int *buflen){
     return buf;
 }
 
+int editorWordCount(){
+    int count = 0;
+    int isInWord = 0;
+
+    for(int i = 0; i < E.numrows; i++){
+        erow *row = &E.row[i];
+
+        for(int j = 0; j < row->size; j++){
+            int c = row->chars[j];
+
+            if(isspace(c)){
+                isInWord = 0;
+            }
+            else if(!isInWord){
+                count++;
+                isInWord = 1;
+            }
+        }
+    }
+
+    return count;
+}
+
 void editorOpen(char *filename){
     free(E.filename);
     E.filename = strdup(filename);
@@ -685,9 +708,11 @@ void editorDrawRows(struct abuf *ab){
 void editorDrawStatusBar(struct abuf *ab){
     abAppend(ab, "\x1b[7m", 4);
 
+    int wordCount = editorWordCount();
+
     char status[80], rstatus[80];
     
-    int len = snprintf(status, sizeof(status), "Line: %d, Column: %d", E.cy + 1, E.rx + 1);
+    int len = snprintf(status, sizeof(status), "Line: %d, Column: %d, Words: %d", E.cy + 1, E.rx + 1, wordCount);
     int rlen = snprintf(rstatus, sizeof(rstatus), "%.20s - %d lines %s", E.filename ? E.filename : "[No Name]", E.numrows, E.dirty ? "(modified)" : "");
 
     if(len > E.screencols){
