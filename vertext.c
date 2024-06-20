@@ -90,6 +90,7 @@ void editorInsertNewLine();
 void editorDelChar();
 char *editorRowsToString(int *buflen);
 int editorWordCount();
+int editorCharacterCount();
 
 void editorOpen(char *filename);
 void editorSave();
@@ -451,6 +452,24 @@ int editorWordCount(){
     return count;
 }
 
+int editorCharacterCount(){
+    int count = 0;
+
+    for(int i = 0; i < editor.numRows; i++){
+        erow *row = &editor.row[i];
+
+        for(int j = 0; j < row->size; j++){
+            int character = row->chars[j];
+
+            if(!isspace(character)){
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
 void editorOpen(char *filename){
     free(editor.filename);
     editor.filename = strdup(filename);
@@ -718,10 +737,11 @@ void editorDrawStatusBar(struct appendBuffer *ab){
     abAppend(ab, "\x1b[7m", 4);
 
     int wordCount = editorWordCount();
+    int characterCount = editorCharacterCount();
 
     char status[80], rstatus[80];
     
-    int length = snprintf(status, sizeof(status), "Line: %d Column: %d Words: %d", editor.cursorY + 1, editor.renderX + 1, wordCount);
+    int length = snprintf(status, sizeof(status), "Line: %d Column: %d Words: %d Characters: %d", editor.cursorY + 1, editor.renderX + 1, wordCount, characterCount);
     int renderLength = snprintf(rstatus, sizeof(rstatus), "%.20s - %d lines %s", editor.filename ? editor.filename : "[No Name]", editor.numRows, editor.dirty ? "(modified)" : "");
 
     if(length > editor.screenColumns){
