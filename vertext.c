@@ -741,7 +741,7 @@ void editorDrawStatusBar(struct appendBuffer *ab){
 
     char status[80], rstatus[80];
     
-    int length = snprintf(status, sizeof(status), "Line: %d Column: %d Words: %d Characters: %d", editor.cursorY + 1, editor.renderX + 1, wordCount, characterCount);
+    int length = snprintf(status, sizeof(status), "Line: %d | Column: %d | Words: %d | Characters: %d", editor.cursorY + 1, editor.renderX + 1, wordCount, characterCount);
     int renderLength = snprintf(rstatus, sizeof(rstatus), "%.20s - %d lines %s", editor.filename ? editor.filename : "[No Name]", editor.numRows, editor.dirty ? "(modified)" : "");
 
     if(length > editor.screenColumns){
