@@ -31,6 +31,10 @@ The text editor uses standard editing keys. Some of the basic commands with thei
 3. Quit the editor when the file is unmodified: `Ctrl + Q`  
 4. Quit the editor when the file is modified: `Ctrl + Q` 3 times
 
+# Demo
+
+[Vertext Demo](https://drive.google.com/file/d/1Z_O-UNG6vSCdqOLX3gbywdmvEwpRe3fB/view?usp=sharing)
+
 # Acknowledgements
 - [Kilo Text Editor](https://github.com/antirez/kilo) by [antirez](https://github.com/antirez)
 - [Kilo Text Editor Tutorial](https://viewsourcecode.org/snaptoken/kilo/) by [snaptoken](https://github.com/snaptoken)
