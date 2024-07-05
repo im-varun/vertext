@@ -22,7 +22,7 @@ git clone https://github.com/im-varun/vertext.git
 cd vertext
 ```  
 
-3. Compile the source code:  
+3. Compile the source code (will create an executable file):  
 ```sh
 make
 ```  
