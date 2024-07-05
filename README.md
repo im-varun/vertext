@@ -2,6 +2,10 @@
 
 Vertext is a simple, lightweight text editor written from scratch in C. This project is inspired by the Kilo text editor (see Acknowledgements for more details) and is for educational purpose only.
 
+# Demo
+
+[Vertext Demo](https://drive.google.com/file/d/1Z_O-UNG6vSCdqOLX3gbywdmvEwpRe3fB/view?usp=sharing)
+
 # Installation
 
 The installation instructions are for Windows Operating System only and assumes that you already have [Cygwin](https://www.cygwin.com/) along with its GCC and Make components (used for compiling C program files and running Makefile respectively) installed.
@@ -30,10 +34,6 @@ The text editor uses standard editing keys. Some of the basic commands with thei
 2. Save a file: `Ctrl + S` (file will be saved in the current directory)  
 3. Quit the editor when the file is unmodified: `Ctrl + Q`  
 4. Quit the editor when the file is modified: `Ctrl + Q` 3 times
-
-# Demo
-
-[Vertext Demo](https://drive.google.com/file/d/1Z_O-UNG6vSCdqOLX3gbywdmvEwpRe3fB/view?usp=sharing)
 
 # Acknowledgements
 - [Kilo Text Editor](https://github.com/antirez/kilo) by [antirez](https://github.com/antirez)
